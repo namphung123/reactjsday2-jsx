@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>30 Days Of React Challenge</title>
+    <style>
+      .root {
+        min-height: 100vh;
+        position: relative;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .header-wrapper {
+        background-color: green;
+        color: white;
+        padding: 50px;
+      }
+
+      .main-wrapper {
+        padding: 50px;
+      }
+      li {
+        list-style: none;
+      }
+
+      .footer-wrapper {
+        background-color: green;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        color: #fff;
+        padding: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="root"></div>
+
+    <script
+      crossorigin
+      src="https://unpkg.com/react@16/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      // To get the root element from the HTML document
+      const rootElement = document.querySelector('.root')
+
+      // JSX element
+      const title = 'Thử Thách 30 ngày với Reactjs'
+      const welcome = 'Chào mừng'
+      const subtitle = 'Thư viện Javascript'
+      const readers = {
+        firstName: 'Phung',
+        lastName: 'Nam',
+      }
+      const date = '4 Oct,2023'
+
+      const header = (
+        <header>
+          <div className="header-wrapper">
+            <h1>{title}</h1>
+            <h2>{welcome}</h2>
+            <h3>{subtitle}</h3>
+            <p>
+              Người xem: {readers.firstName} {readers.lastName}
+            </p>
+            <small>Ngày: {date}</small>
+          </div>
+        </header>
+      )
+
+      const numOne = 3
+      const numTwo = 2
+      const result = (
+        <p>
+          {numOne} + {numTwo} = {numOne + numTwo}
+        </p>
+      )
+
+      const yearBorn = 2003
+      const currentYear = 2023
+      const age = 20
+      const personAge = (
+        <p>
+          {readers.firstName} {readers.lastName}: {age} tuổi
+        </p>
+      )
+
+      const techs = ['HTML', 'CSS', 'JS']
+      const techsFormat = techs.map((tech) => <li key={tech}>{tech}</li>)
+
+      const main = (
+        <div className="main-wrapper">
+          <h4>{personAge}</h4>
+          <p>Năm sinh: {yearBorn}</p>
+          <p>Năm bắt đầu code: {currentYear - 2}</p>
+          <p>Năm hiện tại {currentYear}</p>
+          <p>Phép toán chơi: {result}</p>
+          <p>Các kỹ năng cần có trước khi học Reactjs:</p>
+          <ul>{techsFormat}</ul>
+        </div>
+      )
+
+      const footer = (
+        <div className="footer-wrapper">
+          <p> Bản quyền &copy; thuộc về Phùng Tuấn Nam</p>
+        </div>
+      )
+
+      const app = (
+        <div className="app">
+          {header}
+          {main}
+          {footer}
+        </div>
+      )
+
+      // we render the JSX element using the ReactDOM package
+      // ReactDOM has the render method and the render method takes two argument
+      ReactDOM.render(app, rootElement)
+    </script>
+  </body>
+</html>
